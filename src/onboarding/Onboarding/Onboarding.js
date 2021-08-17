@@ -81,7 +81,8 @@ function Onboarding({ web3 }) {
     const requirementsErrorUpdated = validateCreationRequirements(
       account,
       balance,
-      isContractAccount
+      isContractAccount,
+      networkType
     )
 
     if (
@@ -90,7 +91,7 @@ function Onboarding({ web3 }) {
     ) {
       setRequirementsError(requirementsErrorUpdated)
     }
-  }, [account, balance, isContractAccount, requirementsError])
+  }, [account, balance, isContractAccount, requirementsError, networkType])
 
   const handleCreate = useCallback(() => {
     // reset the creation state
@@ -99,7 +100,8 @@ function Onboarding({ web3 }) {
     const requirementsError = validateCreationRequirements(
       account,
       balance,
-      isContractAccount
+      isContractAccount,
+      networkType
     )
     setRequirementsError(requirementsError)
 

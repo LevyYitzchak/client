@@ -25,6 +25,7 @@ export const networkConfigs = {
       shortName: 'Mainnet',
       type: 'main',
       live: true,
+      currency: 'ETH',
     },
   },
   rinkeby: {
@@ -45,6 +46,7 @@ export const networkConfigs = {
       shortName: 'Rinkeby',
       type: 'rinkeby', // as returned by web3.eth.net.getNetworkType()
       live: true,
+      currency: 'ETH',
     },
   },
   ropsten: {
@@ -63,6 +65,7 @@ export const networkConfigs = {
       shortName: 'Ropsten',
       type: 'ropsten', // as returned by web3.eth.net.getNetworkType()
       live: true,
+      currency: 'ETH',
     },
   },
   matic: {
@@ -83,6 +86,7 @@ export const networkConfigs = {
       shortName: 'Polygon',
       type: 'polygon',
       live: true,
+      currency: 'MATIC',
     },
   },
   mumbai: {
@@ -103,6 +107,7 @@ export const networkConfigs = {
       shortName: 'Mumbai',
       type: 'mumbai',
       live: true,
+      currency: 'MATIC',
     },
   },
   local: {
@@ -207,4 +212,8 @@ export function isOnMainnet(networkType) {
 
 export function getDaiTokenAddress(networkType) {
   return getNetworkConfig(networkType).addresses.dai || ''
+}
+
+export function getNetworkCurrency(networkType) {
+  return getNetworkConfig(networkType).settings.currency || 'ETH'
 }

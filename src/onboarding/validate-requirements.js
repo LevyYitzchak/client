@@ -1,4 +1,5 @@
 import BN from 'bn.js'
+import { getNetworkCurrency } from '../network-config'
 import { fromWei, toWei, formatBalance } from '../web3-utils'
 
 const MINIMUM_BALANCE = new BN(toWei('0.2'))
@@ -14,7 +15,12 @@ function localFormatBalance(balance) {
     : formatBalance(balance, { precision: BALANCE_DECIMALS })
 }
 
-function validateCreationRequirements(account, balance, isContractAccount) {
+function validateCreationRequirements(
+  account,
+  balance,
+  isContractAccount,
+  networkType
+) {
   if (!account) {
     return ['no-account']
   }
@@ -28,6 +34,7 @@ function validateCreationRequirements(account, balance, isContractAccount) {
       {
         balance: localFormatBalance(balance),
         minimumBalance: fromWei(String(MINIMUM_BALANCE)),
+        currency: getNetworkCurrency(networkType),
       },
     ]
   }
