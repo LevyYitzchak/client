@@ -65,6 +65,46 @@ export const networkConfigs = {
       live: true,
     },
   },
+  matic: {
+    enableMigrateBanner: false,
+    addresses: {
+      ensRegistry: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e', // TODO update this
+      dai: DAI_MAINNET_TOKEN_ADDRESS, // TODO update this
+    },
+    nodes: {
+      defaultEth:
+        'wss://polygon-mainnet.g.alchemy.com/v2/SY5Q3m-zAgxioTcOuGcAmJGns4JHYtmV',
+    },
+    connectGraphEndpoint:
+      'https://api.thegraph.com/subgraphs/name/aragon/aragon-mainnet', // TODO update this
+    settings: {
+      chainId: 137,
+      name: 'Polygon',
+      shortName: 'Polygon',
+      type: 'polygon',
+      live: true,
+    },
+  },
+  mumbai: {
+    enableMigrateBanner: false,
+    addresses: {
+      ensRegistry: '0x98df287b6c145399aaa709692c8d308357bc085d', // TODO update this
+      dai: DAI_RINKEBY_TOKEN_ADDRESS, // TODO update this
+    },
+    nodes: {
+      defaultEth:
+        'wss://polygon-mumbai.g.alchemy.com/v2/hk9vh9U3GZGWC8Un2i0-ICRoOJkCUQg_',
+    },
+    connectGraphEndpoint:
+      'https://api.thegraph.com/subgraphs/name/aragon/aragon-rinkeby', // TODO update this
+    settings: {
+      chainId: 80001,
+      name: 'Mumbai testnet',
+      shortName: 'Mumbai',
+      type: 'mumbai',
+      live: true,
+    },
+  },
   local: {
     enableMigrateBanner: true,
     addresses: {
