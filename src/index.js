@@ -56,13 +56,13 @@ function Providers() {
     <Main layout={false} scrollView={false} theme={appearance}>
       <RoutingProvider>
         <WalletProvider>
-          <ClientWeb3Provider>
-            <ConsoleVisibleProvider>
-              <GlobalErrorHandler>
+          <ConsoleVisibleProvider>
+            <GlobalErrorHandler>
+              <ClientWeb3Provider>
                 <App />
-              </GlobalErrorHandler>
-            </ConsoleVisibleProvider>
-          </ClientWeb3Provider>
+              </ClientWeb3Provider>
+            </GlobalErrorHandler>
+          </ConsoleVisibleProvider>
         </WalletProvider>
       </RoutingProvider>
     </Main>
