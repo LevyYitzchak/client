@@ -92,7 +92,7 @@ export const networkConfigs = {
   mumbai: {
     enableMigrateBanner: false,
     addresses: {
-      ensRegistry: '0xf0517eb027dabb1dc34e131e49aab7fa00b1db15', // aragon local copy
+      ensRegistry: '0x431f0eed904590b176f9ff8c36a1c4ff0ee9b982', // aragon local copy
       dai: DAI_RINKEBY_TOKEN_ADDRESS, // TODO update this
     },
     nodes: {
