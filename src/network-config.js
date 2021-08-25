@@ -201,6 +201,10 @@ export function getNetworkSettings(networkType) {
   return getNetworkConfig(networkType).settings
 }
 
+export function getChainId(networkType) {
+  return getNetworkSettings(networkType).chainId
+}
+
 export function useNetworkConfig() {
   const { networkType } = useWallet()
   return getNetworkConfig(networkType)

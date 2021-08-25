@@ -20,7 +20,7 @@ import {
 import SandboxedWorker from './worker/SandboxedWorker'
 import WorkerSubscriptionPool from './worker/WorkerSubscriptionPool'
 import { getOrganizationByAddress } from './services/gql'
-import { getNetworkConfig } from './network-config'
+import { getNetworkConfig, getChainId } from './network-config'
 
 const POLL_DELAY_CONNECTIVITY = 2000
 
@@ -216,7 +216,6 @@ const subscribe = (
           // before we got to it here, let's short circuit
           if (!workerSubscriptionPool.hasWorker(proxyAddress)) {
             const worker = new SandboxedWorker(scriptUrl, { name: workerName })
-
             const provider = new providers.MessagePortMessage(worker)
             workerSubscriptionPool.addWorker({
               app,
@@ -296,11 +295,16 @@ const initWrapper = async (
   })
 
   try {
+    const chainId = getChainId(networkType)
     await wrapper.init({
       accounts: {
         providedAccounts: walletAccount ? [walletAccount] : [],
       },
       guiStyle,
+      network: {
+        id: chainId,
+        type: networkType,
+      },
     })
   } catch (err) {
     if (err.message === 'Provided daoAddress is not a DAO') {
